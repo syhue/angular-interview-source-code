@@ -1,0 +1,55 @@
+<div class="login-container-laptop"
+    *ngIf="showContainer" >
+    <div><h1>Hello, <br> Welcome Back</h1><br></div>
+    <form>
+        <div class="login-little-container">
+            <input class = "input-text" type="email" placeholder="Your email" name="input-email"
+            (input)="onEmail($event)"><br>
+            <input class = "input-text" type="password" placeholder="Your password" name="input-password" (input)="onPassword($event)"><br>
+            <div class="flex-container">
+                <div class = "flex-item-left">
+                    <label><input class = "checkbox-text" type="checkbox"><span>Remember Me</span></label>
+                </div>
+
+                <div class = "flex-item-right">
+                    <a href="reset-page.php">Forgot Your Password?</a>
+                </div>
+            </div>
+            <br><br>
+        </div>
+
+        <button class="button" name="button-login"
+            (click)="onClick()"
+            >Log In</button><label class = "alert">{{Alert}}</label>
+    </form>
+</div>
+
+
+<div class="login-container-mobile"
+    *ngIf="!showContainer" >
+    <div><h1 class="heading-mobile">Hello, <br> Welcome Back</h1><br></div>
+    <form>
+        <div class="login-little-container-mobile">
+            <input class = "input-text" type="email" placeholder="Your email" name="input-email"
+            (input)="onEmail($event)"><br>
+            <input class = "input-text" type="password" placeholder="Your password" name="input-password" (input)="onPassword($event)"><br>
+            <div class="flex-container">
+                <div class = "flex-item-left">
+                    <label><input class = "checkbox-text" type="checkbox"><span>Remember Me</span></label>
+                </div>
+
+                <div class = "flex-item-right">
+                    <a href="reset-page.php">Forgot Your Password?</a>
+                </div>
+            </div>
+        </div>
+
+
+        <button class="button" name="button-login"
+            (click)="onClick()"
+            >Log In</button>
+
+        <label class = "alert">{{Alert}}</label>
+
+    </form>
+</div>

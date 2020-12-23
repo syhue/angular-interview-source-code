@@ -12,39 +12,34 @@ export class LoginComponent implements OnInit {
     password="";
     Alert = "";
 
+    public showContainer: boolean;
+    constructor(public breakpointObserver: BreakpointObserver) {}
 
-
-
-  public showContainer: boolean;
-  constructor(public breakpointObserver: BreakpointObserver) {}
-
-  ngOnInit() {
-    this.breakpointObserver
-      .observe(['(min-width: 800px)'])
-      .subscribe((state: BreakpointState) => {
+    ngOnInit() {
+        this.breakpointObserver
+        .observe(['(min-width: 800px)'])
+        .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          this.showContainer = true;
+            this.showContainer = true;
         } else {
-          this.showContainer = false;
+            this.showContainer = false;
         }
-      });
-  }
+        });
+    }
 
-  onEmail(event: Event) {
-      this.email =(<HTMLInputElement>event.target).value;
+    onEmail(event: Event) {
+        this.email =(<HTMLInputElement>event.target).value;
+    }
 
-  }
+    onPassword(event: Event) {
+        this.password =(<HTMLInputElement>event.target).value;
+    }
 
-  onPassword(event: Event) {
-      this.password =(<HTMLInputElement>event.target).value;
+    onClick() {
+        if(this.email.length== 0 || this.password.length == 0){
+            this.Alert = "Please fill in your email and password";
+        }
 
-  }
-
-  onClick() {
-      if(this.email.length== 0 || this.password.length == 0){
-          this.Alert = "Please fill in your email and password";
-      }
-
-  }
+    }
 
 }
